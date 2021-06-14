@@ -1,0 +1,4 @@
+.link__button-like:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}

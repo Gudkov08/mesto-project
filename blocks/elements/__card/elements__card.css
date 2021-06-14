@@ -1,0 +1,6 @@
+.elements__card {
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+}

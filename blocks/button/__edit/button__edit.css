@@ -1,0 +1,21 @@
+.button__edit {
+  margin-left: 18px;
+  background-image: url(/images/button__edit.svg);
+  width: 24px;
+  height: 24px;
+  background-color: inherit;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (max-width: 618px) {
+  .button__edit {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+  }
+}

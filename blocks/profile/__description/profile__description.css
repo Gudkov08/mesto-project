@@ -1,0 +1,19 @@
+.profile__description {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media (max-width: 718px) {
+  .profile__description {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 618px) {
+  .profile__description {
+    text-align: center;
+  }
+}

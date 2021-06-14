@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Места для поездок по России</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+    <meta
+      name="description"
+      content="Сайт о местах для путешествия по России"
+    />
+    <meta
+      name="keywords"
+      content="достопримечательности России. Домбай, Эльбрус, Карачаевск."
+    />
+    <meta name="author" content="Гудков Андрей" />
+  </head>
+  <body class="page">
+    <!-- HEADER -->
+    <header class="header page__section">
+      <img class="header__logo" src="./images/logo.svg" alt="логотип" />
+    </header>
+
+    <main>
+      <!-- section "profile" -->
+      <section class="profile page__section">
+        <img
+          class="profile__img"
+          src="./images/kusto.jpg"
+          alt="фотография из профиля"
+        />
+        <div class="profile__info">
+          <div class="profile__edit-wrapper">
+            <label class="profile__name" for="profile-name">Жак-Ив Кусто</label>
+            <button class="button__edit link"></button>
+          </div>
+          <label class="profile__description" for="profile-description"
+            >Исследователь океана</label
+          >
+        </div>
+        <button class="button__add link"></button>
+      </section>
+
+      <!-- section "elements" -->
+      <section class="elements page__section">
+        <ul class="elements__list">
+          <li class="elements__card">
+            <img
+              class="elements__card-image"
+              src="./images/img1.jpg"
+              alt="фотография с видом Карачаевска"
+            />
+            <div class="elements__card-caption">
+              <h2 class="elements__card-title">Карачаевск</h2>
+              <button class="button__like link__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__card">
+            <img
+              class="elements__card-image"
+              src="./images/img2.jpg"
+              alt="фотография с видом горы Эльбрус"
+            />
+            <div class="elements__card-caption">
+              <h2 class="elements__card-title">Гора Эльбрус</h2>
+              <button class="button__like link__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__card">
+            <img
+              class="elements__card-image"
+              src="./images/img3.jpg"
+              alt="фотография с видом Домбая"
+            />
+            <div class="elements__card-caption">
+              <h2 class="elements__card-title">Домбай</h2>
+              <button class="button__like link__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__card">
+            <img
+              class="elements__card-image"
+              src="./images/img2.jpg"
+              alt="фотография с видом горы Эльбрус"
+            />
+            <div class="elements__card-caption">
+              <h2 class="elements__card-title">Гора Эльбрус</h2>
+              <button class="button__like link__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__card">
+            <img
+              class="elements__card-image"
+              src="./images/img3.jpg"
+              alt="фотография с видом Домбая"
+            />
+            <div class="elements__card-caption">
+              <h2 class="elements__card-title">Домбай</h2>
+              <button class="button__like link__button-like"></button>
+            </div>
+          </li>
+          <li class="elements__card">
+            <img
+              class="elements__card-image"
+              src="./images/img1.jpg"
+              alt="фотография с видом Карачаево-Черкесска"
+            />
+            <div class="elements__card-caption">
+              <h2 class="elements__card-title">Карачаево-Черкесск</h2>
+              <button
+                class="
+                  button__like
+                  link__button-like
+                  button__like_status_active
+                "
+              ></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer page__section">© 2020 Mesto Russia</footer>
+
+    <!-- POPUP -->
+    <!-- popup_opened -->
+    <div class="popup popup_opened">
+      <form class="popup__container">
+        <button class="button__close"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input
+          type="text"
+          class="popup__input"
+          id="profile-name"
+          name="profile-name"
+          placeholder="Жак-Ив Кусто"
+          required
+        />
+        <input
+          type="text"
+          class="popup__input"
+          id="profile-description"
+          name="profile-description"
+          placeholder="Исследователь океана"
+          required
+        />
+        <input type="submit" class="button__submit">Сохранить</input>
+      </form>
+    </div>
+  </body>
+</html>
