@@ -6,6 +6,6 @@
 
 Использованные технологии: HTML, CSS, Grid, media запросы. Сверстана форма. Для нее использованы: button, input, popup.
 
-Ссылка на GitHub Pages: https://github.com/Gudkov08/russian-travel.
+Ссылка на GitHub Pages: https://github.com/Gudkov08/mesto-project
 
 Автор: Гудков Андрей.
