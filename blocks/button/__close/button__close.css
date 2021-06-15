@@ -1,5 +1,5 @@
 .button__close {
-  background-image: url(/images/button__close.png);
+  background-image: url(../../../images/button__close.png);
   width: 40px;
   height: 40px;
   position: absolute;

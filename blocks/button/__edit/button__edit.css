@@ -1,6 +1,6 @@
 .button__edit {
   margin-left: 18px;
-  background-image: url(/images/button__edit.svg);
+  background-image: url(../../../images/button__edit.svg);
   width: 24px;
   height: 24px;
   background-color: inherit;
