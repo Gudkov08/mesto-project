@@ -6,6 +6,6 @@
 
 Использованные технологии: HTML, CSS, Grid, media запросы. Сверстана форма. Для нее использованы: button, input, popup.
 
-Ссылка на GitHub Pages: https://github.com/Gudkov08/mesto-project
+Ссылка на GitHub Pages: https://gudkov08.github.io/
 
 Автор: Гудков Андрей.
