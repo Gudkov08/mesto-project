@@ -5,115 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Места для поездок по России</title>
     <link rel="stylesheet" href="./pages/index.css" />
-    <meta
-      name="description"
-      content="Сайт о местах для путешествия по России"
-    />
-    <meta
-      name="keywords"
-      content="достопримечательности России. Домбай, Эльбрус, Карачаевск."
-    />
+    <meta name="description" content="Сайт о местах для путешествия по России" />
+    <meta name="keywords" content="достопримечательности России. Домбай, Эльбрус, Карачаевск." />
     <meta name="author" content="Гудков Андрей" />
   </head>
   <body class="page">
     <!-- HEADER -->
     <header class="header page__section">
-      <img class="header__logo" src="./images/logo.svg" alt="логотип" />
+      <img class="header__logo" src="./images/logo.svg" alt="логотип">
     </header>
 
     <main>
-      <!-- section "profile" -->
+      <!-- section PROFILE -->
       <section class="profile page__section">
-        <img
-          class="profile__img"
-          src="./images/kusto.jpg"
-          alt="фотография из профиля"
-        />
+        <img class="profile__img" src="./images/kusto.jpg" alt="фотография из профиля">
         <div class="profile__info">
           <div class="profile__edit-wrapper">
-            <label class="profile__name" for="profile-name">Жак-Ив Кусто</label>
-            <button class="button__edit link"></button>
+            <h1 class="profile__name" for="profile-name">Жак-Ив Кусто</h1>
+            <button type="button" class="button button_edit"></button>
           </div>
-          <label class="profile__description" for="profile-description"
-            >Исследователь океана</label
-          >
+          <p class="profile__description" for="profile-description">Исследователь океана</p>
         </div>
-        <button class="button__add link"></button>
+        <button type="button" class="button button_add"></button>
       </section>
 
-      <!-- section "elements" -->
+      <!-- section ELEMENTS -->
       <section class="elements page__section">
         <ul class="elements__list">
           <li class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/img1.jpg"
-              alt="фотография с видом Карачаевска"
-            />
+            <img class="elements__card-image" src="./images/img1.jpg" alt="фотография с видом Карачаевска">
             <div class="elements__card-caption">
               <h2 class="elements__card-title">Карачаевск</h2>
-              <button class="button__like link__button-like"></button>
+              <button type="button" class="button button_like"></button>
             </div>
           </li>
           <li class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/img2.jpg"
-              alt="фотография с видом горы Эльбрус"
-            />
+            <img class="elements__card-image" src="./images/img2.jpg" alt="фотография с видом горы Эльбрус">
             <div class="elements__card-caption">
               <h2 class="elements__card-title">Гора Эльбрус</h2>
-              <button class="button__like link__button-like"></button>
+              <button type="button" class="button button_like"></button>
             </div>
           </li>
           <li class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/img3.jpg"
-              alt="фотография с видом Домбая"
-            />
+            <img class="elements__card-image" src="./images/img3.jpg" alt="фотография с видом Домбая">
             <div class="elements__card-caption">
               <h2 class="elements__card-title">Домбай</h2>
-              <button class="button__like link__button-like"></button>
+              <button type="button" class="button button_like"></button>
             </div>
           </li>
           <li class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/img2.jpg"
-              alt="фотография с видом горы Эльбрус"
-            />
+            <img class="elements__card-image" src="./images/img2.jpg" alt="фотография с видом горы Эльбрус">
             <div class="elements__card-caption">
               <h2 class="elements__card-title">Гора Эльбрус</h2>
-              <button class="button__like link__button-like"></button>
+              <button type="button" class="button button_like"></button>
             </div>
           </li>
           <li class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/img3.jpg"
-              alt="фотография с видом Домбая"
-            />
+            <img class="elements__card-image" src="./images/img3.jpg" alt="фотография с видом Домбая">
             <div class="elements__card-caption">
               <h2 class="elements__card-title">Домбай</h2>
-              <button class="button__like link__button-like"></button>
+              <button type="button" class="button button_like"></button>
             </div>
           </li>
           <li class="elements__card">
-            <img
-              class="elements__card-image"
-              src="./images/img1.jpg"
-              alt="фотография с видом Карачаево-Черкесска"
-            />
+            <img class="elements__card-image" src="./images/img1.jpg" alt="фотография с видом Карачаево-Черкесска">
             <div class="elements__card-caption">
               <h2 class="elements__card-title">Карачаево-Черкесск</h2>
-              <button
-                class="
-                  button__like
-                  link__button-like
-                  button__like_status_active
-                "
-              ></button>
+              <button type="button" class="button button_like button_like_active"></button>
             </div>
           </li>
         </ul>
@@ -121,32 +79,22 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer page__section">© 2020 Mesto Russia</footer>
+    <footer>
+      <p class="footer page__section">© 2020 Mesto Russia</p>
+    </footer>
 
     <!-- POPUP -->
     <!-- popup_opened - подставьте данный модификатор в <div class="popup">, чтобы вызвать попап с формой-->
-    <div class="popup">
-      <form class="popup__container">
-        <button class="button__close"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input
-          type="text"
-          class="popup__input"
-          id="profile-name"
-          name="profile-name"
-          placeholder="Жак-Ив Кусто"
-          required
-        />
-        <input
-          type="text"
-          class="popup__input"
-          id="profile-description"
-          name="profile-description"
-          placeholder="Исследователь океана"
-          required
-        />
-        <input type="submit" class="button__submit" value="Сохранить" />
-      </form>
-    </div>
+    <section class="popup popup_opened">
+      <div class="popup__container">
+        <form>
+          <button type="reset" class="button button_close"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input type="text" class="popup__input" id="profile-name" name="profile-name" placeholder="Жак-Ив Кусто" required>
+          <input type="text" class="popup__input" id="profile-description" name="profile-description" placeholder="Исследователь океана" required>
+          <input type="submit" class="button button_submit" value="Сохранить">
+        </form>
+      </div>
+    </section>
   </body>
 </html>

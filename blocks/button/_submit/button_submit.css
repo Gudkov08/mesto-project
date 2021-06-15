@@ -1,0 +1,13 @@
+.button_submit {
+  width: 100%;
+  min-height: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 2px;
+ }
+
+@media (max-width: 618px) {
+  .button_submit {
+    min-height: 46px;
+  }
+}

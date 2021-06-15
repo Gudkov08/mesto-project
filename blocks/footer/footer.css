@@ -2,6 +2,8 @@
   font-size: 18px;
   line-height: 22px;
   color: #545454;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 618px) {

@@ -2,6 +2,8 @@
   max-width: 120px;
   border-radius: 50%;
   margin-right: 30px;
+  object-fit: cover;
+  height: 127.5px;
 }
 
 @media (max-width: 618px) {

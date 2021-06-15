@@ -1,0 +1,16 @@
+.button_close {
+  background-image: url(../../../images/button__close.svg);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -37px;
+  right: -40px;
+  background-color: transparent;
+}
+
+@media (max-width: 618px) {
+  .button_close {
+    right: 0;
+    top: -50px;
+  }
+}
