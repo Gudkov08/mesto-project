@@ -1,5 +1,5 @@
-.button_close {
-  background-image: url(../../../images/button__close.svg);
+.button_type_close {
+  background-image: url(../../../images/btn-close2.svg);
   width: 40px;
   height: 40px;
   position: absolute;
@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 618px) {
-  .button_close {
+  .button_type_close {
     right: 0;
     top: -50px;
   }

@@ -8,5 +8,7 @@
 @media (max-width: 618px) {
   .profile__edit-wrapper {
     margin-bottom: 14px;
+    justify-content: flex-end;
+    width: 282px;
   }
 }

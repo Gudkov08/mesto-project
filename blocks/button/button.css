@@ -9,7 +9,7 @@
   justify-content: center;
   background-color: #000;
   color: #fff;
-  object-fit: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }

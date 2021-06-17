@@ -1,4 +1,4 @@
-.button_submit {
+.button_type_submit {
   width: 100%;
   min-height: 50px;
   font-size: 18px;
@@ -7,7 +7,9 @@
  }
 
 @media (max-width: 618px) {
-  .button_submit {
+  .button_type_submit {
     min-height: 46px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

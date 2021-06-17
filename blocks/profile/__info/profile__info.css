@@ -1,12 +1,11 @@
 .profile__info {
   margin-right: 30px;
   flex-grow: 1;
-}
+  }
 
 @media (max-width: 618px) {
   .profile__info {
     margin-right: 0;
-    flex-grow: 0;
     margin-bottom: 36px;
   }
 }
