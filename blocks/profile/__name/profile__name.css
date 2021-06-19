@@ -21,6 +21,7 @@
 @media (max-width: 618px) {
   .profile__name {
     text-align: center;
+    margin-bottom: -7px;
   }
 }
 

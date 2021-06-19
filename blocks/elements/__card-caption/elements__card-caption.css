@@ -1,7 +1,7 @@
 .elements__card-caption {
-  padding: 21px 25px 15px 31px;
+  padding: 14px 19px 17px 21px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 43px;
+  min-height: 45px;
 }
