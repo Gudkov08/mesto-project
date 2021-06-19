@@ -6,11 +6,13 @@
   top: -37px;
   right: -40px;
   background-color: transparent;
+  background-size: auto;
 }
 
 @media (max-width: 618px) {
   .button_type_close {
-    right: 0;
-    top: -50px;
+    right: -2px;
+    top: -53px;
+    background-size: cover;
   }
 }

@@ -3,6 +3,7 @@
   margin-left: 18px;
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 618px) {

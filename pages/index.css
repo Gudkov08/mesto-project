@@ -6,14 +6,12 @@
 @import "../blocks/header/__logo/header__logo.css";
 @import "../blocks/button/button.css";
 @import "../blocks/button/_type/button_type_edit.css";
-@import "../blocks/button/_type/button_type_add.css";
-@import "../blocks/button/_type/button_type_like.css";
-@import "../blocks/button/_type/button_type_like-active.css";
 @import "../blocks/button/_type/button_type_close.css";
 @import "../blocks/button/_type/button_type_submit.css";
 @import "../blocks/profile/profile.css";
 @import "../blocks/profile/__img/profile__img.css";
 @import "../blocks/profile/__info/profile__info.css";
+@import "../blocks/profile/__add-btn/profile__add-btn.css";
 @import "../blocks/profile/__edit-wrapper/profile__edit-wrapper.css";
 @import "../blocks/profile/__name/profile__name.css";
 @import "../blocks/profile/__description/profile__description.css";
@@ -23,6 +21,8 @@
 @import "../blocks/elements/__card-image/elements__card-image.css";
 @import "../blocks/elements/__card-caption/elements__card-caption.css";
 @import "../blocks/elements/__card-title/elements__card-title.css";
+@import "../blocks/elements/__card-button/elements__card-button.css";
+@import "../blocks/elements/__card-button/_active/elements__card-button_active.css";
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__copyright/footer__copyright.css";
 @import "../blocks/popup/popup.css";
