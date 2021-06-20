@@ -13,7 +13,7 @@
 @media (max-width: 718px) {
   .profile__description {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 15px;
   }
 }
 
@@ -21,6 +21,5 @@
   .profile__description {
     text-align: center;
     max-width: 280px;
-    margin-bottom: -3px;
   }
 }

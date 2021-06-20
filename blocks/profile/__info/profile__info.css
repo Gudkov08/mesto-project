@@ -6,6 +6,12 @@
   flex: 1 2 550px;
 }
 
+@media (max-width: 718px) {
+  .profile__info {
+    margin-right: 15px;
+  }
+}
+
 @media (max-width: 618px) {
   .profile__info {
     flex: 0;
