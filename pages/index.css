@@ -8,6 +8,7 @@
 @import "../blocks/button/_type/button_type_edit.css";
 @import "../blocks/button/_type/button_type_close.css";
 @import "../blocks/button/_type/button_type_submit.css";
+@import "../blocks/button/_type/button_type_trash.css";
 @import "../blocks/profile/profile.css";
 @import "../blocks/profile/__img/profile__img.css";
 @import "../blocks/profile/__info/profile__info.css";
@@ -30,3 +31,7 @@
 @import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__title/popup__title.css";
 @import "../blocks/popup/__input/popup__input.css";
+@import "../blocks/imgPopup/imgPopup.css";
+@import "../blocks/imgPopup/__image/imgPopup__image.css";
+@import "../blocks/imgPopup/__caption/imgPopup__caption.css";
+@import "../blocks/popup/_type/popup_type_img.css";
