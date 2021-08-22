@@ -11,6 +11,6 @@
 
 **Использованные технологии:** HTML, CSS, Grid, media запросы, JavaScript.
 
-[Ссылка на GitHub Pages.](https://gudkov08.github.io)
+[Ссылка на GitHub Pages.](https://gudkov08.github.io/mesto)
 
 **Автор:** Гудков Андрей.
