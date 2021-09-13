@@ -1,0 +1,32 @@
+.form__submit {
+  box-sizing: border-box;
+  border: none;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  min-height: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 2px;
+ }
+
+@media (max-width: 618px) {
+  .form__submit {
+    min-height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.form__submit:hover {
+  opacity: .8;
+}

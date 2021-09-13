@@ -20,7 +20,7 @@
 
       <!-- section PROFILE -->
       <section class="profile page__section" aria-label="секция профиля">
-        <img class="profile__img" src="./images/kusto.jpg" alt="фотография из профиля">
+        <img class="profile__img" src="./images/kusto.jpg" alt="аватар">
         <div class="profile__info">
           <div class="profile__edit-wrapper">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -44,53 +44,69 @@
       <p class="footer__copyright">&#64; 2020 Mesto Russia</p>
     </footer>
 
-    <!-- POPUP EDIT-PROFILE --->
+    <!-- POPUP EDIT-PROFILE -->
     <section id="POPUP-EDIT-PROFILE" class="popup">
       <div class="popup__container">
         <button type="button" class="button button_type_close" aria-label="кнопка Закрыть форму"></button>
-        <form name="editProfile">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" class="popup__input" name="profile-name" placeholder="Введите имя" maxlength="50" required>
-          <input type="text" class="popup__input" name="profile-description" placeholder="Введите профессию" maxlength="200" required>
-          <input type="submit" class="button button_type_submit" value="Сохранить">
+        <form class="form" name="editProfile" novalidate>
+          <h2 class="form__title">Редактировать профиль</h2>
+          <fieldset class="form__set">
+            <label class="form__field">
+              <input type="text" class="form__input" name="profile-name" id="profile-name" placeholder="Введите имя" minlength="2" maxlength="40" required>
+              <span class="form__input-error profile-name-error"></span>
+            </label>
+            <label class="form__field">
+              <input type="text" class="form__input" name="profile-description" id="profile-description" placeholder="Введите профессию" minlength="2" maxlength="200" required>
+              <span class="form__input-error profile-description-error"></span>
+            </label>
+            <button type="submit" class="form__submit form__submit_inactive">Сохранить</button>
+          </fieldset>
         </form>
       </div>
     </section>
 
-    <!-- POPUP NEW-CARD --->
+    <!-- POPUP NEW-CARD -->
     <section id="POPUP-NEW-CARD" class="popup">
       <div class="popup__container">
         <button type="button" class="button button_type_close" aria-label="кнопка Закрыть форму"></button>
-        <form name="newCard">
-          <h2 class="popup__title">Новое место</h2>
-          <input type="text" class="popup__input" name="newCardName" placeholder="Название" maxlength="50" required>
-          <input type="text" class="popup__input" name="newCardLink" placeholder="Ссылка на картинку" maxlength="200" required>
-          <input type="submit" class="button button_type_submit" value="Создать">
+        <form class="form" name="newCard" novalidate>
+          <h2 class="form__title">Новое место</h2>
+          <fieldset class="form__set">
+            <label class="form__field">
+              <input type="text" class="form__input" name="newCardName" id="newCardName" placeholder="Название" minlength="2" maxlength="30" required>
+              <span class="form__input-error newCardName-error"></span>
+            </label>
+            <label class="form__field">
+              <input type="url" class="form__input" name="newCardLink" id="newCardLink" placeholder="Ссылка на картинку" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)" required>
+              <span class="form__input-error newCardLink-error"></span>
+            </label>
+            <button type="submit" class="form__submit">Создать</button>
+          </fieldset>
         </form>
       </div>
     </section>
 
-        <!-- POPUP IMAGE-LARGE --->
-        <section id="POPUP-IMAGE-LARGE" class="popup popup_type_img">
-          <figure class="imgPopup">
-            <img class="imgPopup__image" src="" alt="фотография места для посещения">
-            <button type="button" class="button button_type_close" aria-label="кнопка Закрыть форму"></button>
-            <figcaption class="imgPopup__caption"></figcaption>
-          </figure>
-        </section>
+    <!-- POPUP IMAGE-LARGE -->
+    <section id="POPUP-IMAGE-LARGE" class="popup popup_type_img" aria-label="POPUP-IMAGE-LARGE">
+      <figure class="imgPopup">
+        <img class="imgPopup__image" src="#" alt="фотография места для посещения">
+        <button type="button" class="button button_type_close" aria-label="кнопка Закрыть форму"></button>
+        <figcaption class="imgPopup__caption"></figcaption>
+      </figure>
+    </section>
 
-    <!-- TEMPLATES --->
+    <!-- TEMPLATE FOR NEW CARD -->
     <template id="AddNewCard">
       <li class="elements__card">
-        <img class="elements__card-image" src=${newCardLink} alt="фотография места для посещения">
+        <img class="elements__card-image" src="" alt="">
         <button type="button" class="button button_type_trash" aria-label="кнопка удаления карточки"></button>
         <div class="elements__card-caption">
-          <h2 class="elements__card-title">${newCardName}</h2>
+          <h2 class="elements__card-title"></h2>
           <button type="button" class="button elements__card-button" aria-label="кнопка 'Нравится!'"></button>
         </div>
       </li>
     </template>
 
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./components/index.js"></script>
   </body>
 </html>

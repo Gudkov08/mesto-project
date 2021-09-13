@@ -7,7 +7,6 @@
 @import "../blocks/button/button.css";
 @import "../blocks/button/_type/button_type_edit.css";
 @import "../blocks/button/_type/button_type_close.css";
-@import "../blocks/button/_type/button_type_submit.css";
 @import "../blocks/button/_type/button_type_trash.css";
 @import "../blocks/profile/profile.css";
 @import "../blocks/profile/__img/profile__img.css";
@@ -29,9 +28,16 @@
 @import "../blocks/popup/popup.css";
 @import "../blocks/popup/_opened/popup_opened.css";
 @import "../blocks/popup/__container/popup__container.css";
-@import "../blocks/popup/__title/popup__title.css";
-@import "../blocks/popup/__input/popup__input.css";
+@import "../blocks/popup/_type/popup_type_img.css";
 @import "../blocks/imgPopup/imgPopup.css";
 @import "../blocks/imgPopup/__image/imgPopup__image.css";
 @import "../blocks/imgPopup/__caption/imgPopup__caption.css";
-@import "../blocks/popup/_type/popup_type_img.css";
+@import "../blocks/form/__set/form__set.css";
+@import "../blocks/form/__field/form__field.css";
+@import "../blocks/form/__title/form__title.css";
+@import "../blocks/form/__input/form__input.css";
+@import "../blocks/form/__input/_type/form__input_type_error.css";
+@import "../blocks/form/__input-error/form__input-error.css";
+@import "../blocks/form/__input-error/_active/form__input-error_active.css";
+@import "../blocks/form/__submit/form__submit.css";
+@import "../blocks/form/__submit/_inactive/form__submit_inactive.css";
