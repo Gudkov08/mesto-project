@@ -1,0 +1,21 @@
+.profile__edit-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-bottom: 16px;
+  flex-shrink: 2;
+}
+
+@media (max-width: 618px) {
+  .profile__edit-wrapper {
+    margin-bottom: 7px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile__edit-wrapper {
+    min-width: 282px;
+    justify-content: flex-end;
+  }
+}
