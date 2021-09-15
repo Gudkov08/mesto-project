@@ -11,6 +11,4 @@
 
 **Использованные технологии:** HTML, CSS, Grid, media запросы, JavaScript.
 
-[Ссылка на GitHub Pages.](https://gudkov08.github.io)
-
 **Автор:** Гудков Андрей.
