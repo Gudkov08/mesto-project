@@ -1,9 +1,0 @@
-.elements {
-  padding-bottom: 66px;
-}
-
-@media (max-width: 718px) {
-  .elements {
-    padding-bottom: 48px;
-  }
-}
