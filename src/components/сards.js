@@ -1,8 +1,11 @@
 import * as modals from './modal.js';
+import * as startCards from './initial-сards.js';
+
 
 /* -------------------Создаем новую карточку------------------- */
 
-export function createNewCard(name, link) {
+//name, link
+export function createNewCard(card) {
   // заносим содержание шаблона карточки в переменную
   const cardTemplate = document.querySelector("#AddNewCard").content;
 
@@ -15,9 +18,9 @@ export function createNewCard(name, link) {
   const image = cardElement.querySelector(".elements__card-image");
   const imageCaption = cardElement.querySelector(".elements__card-title");
 
-  imageCaption.textContent = name;
-  image.alt = name;
-  image.src = link;
+  imageCaption.textContent = card.name;
+  image.alt = card.name;
+  image.src = card.link;
 
   // обработчик нажатия на кнопку лайк
   cardElement
@@ -28,9 +31,9 @@ export function createNewCard(name, link) {
     });
 
   // обработчик нажатия на кнопку удаления карточки
-  const ButtonTrash = cardElement.querySelector(".button_type_trash");
-  ButtonTrash.addEventListener("click", function () {
-    ButtonTrash.parentNode.remove();
+  const buttonTrash = cardElement.querySelector(".button_type_trash");
+  buttonTrash.addEventListener("click", function () {
+    buttonTrash.closest('.elements__card').remove();
   });
 
   // обработчик нажатия на картинку
@@ -38,7 +41,6 @@ export function createNewCard(name, link) {
   const popupImage = document.querySelector("#POPUP-IMAGE-LARGE");
 
   cardImage.addEventListener("click", function (e) {
-  /*   e.stopPropagation(); */
     modals.openPopup(popupImage);
 
     const imagePopupImage = popupImage.querySelector(".imgPopup__image");
@@ -55,12 +57,27 @@ export function createNewCard(name, link) {
 export const cardsList = document.querySelector(".elements__list");
 
 export function submitFormNewCard(evt) {
-  const newCardNameInput = document.querySelector("input[name=newCardName]");
-  const newCardLinkInput = document.querySelector("input[name=newCardLink]");
   const popupNewCard = document.querySelector("#POPUP-NEW-CARD");
+  const newCardObject = {
+  };
+  newCardObject.name = popupNewCard.querySelector("input[name=newCardName]").value;
+  newCardObject.link = popupNewCard.querySelector("input[name=newCardLink]").value;
 
   evt.preventDefault();
-  const newCard = createNewCard(newCardNameInput.value, newCardLinkInput.value);
+  const newCard = createNewCard(newCardObject);
   cardsList.prepend(newCard);
   modals.closePopup(popupNewCard);
+  popupNewCard.querySelector('.form').reset();
+  popupNewCard.querySelector('.form__submit').disabled = true;
+  popupNewCard.querySelector('.form__submit').classList.add('form__submit_inactive');
 }
+
+function loadInitialCards(arr) {
+  arr.forEach(item => {
+    const newCard = createNewCard(item);
+    cardsList.prepend(newCard);
+  });
+}
+
+/* -------------------Добавление 6ти карточек по умолчанию------------------- */
+loadInitialCards(startCards.initialCards);
