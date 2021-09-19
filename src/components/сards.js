@@ -69,7 +69,7 @@ export function submitFormNewCard(evt) {
   modals.closePopup(popupNewCard);
   popupNewCard.querySelector(validate.validationConfig.formSelector).reset();
   popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).disabled = true;
-  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).classList.add('form__submit_inactive');
+  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).classList.add(validate.validationConfig.inactiveButtonClass);
 }
 
 export function loadInitialCards(arr) {
