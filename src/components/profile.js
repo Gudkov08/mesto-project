@@ -22,10 +22,10 @@ function submitPopupEdit(evt) {
   modals.closePopup(popupEdit);
 }
 
-function loadProfile(obj) {
+/* function loadProfile(obj) {
   profileName.textContent =obj.name;
   profileDescription.textContent =obj.about;
   profileAvatar.src = obj.avatar;
-}
+} */
 
-export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile}
+export {openPopupEdit, submitPopupEdit, popupEdit}

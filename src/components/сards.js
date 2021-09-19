@@ -1,6 +1,6 @@
 import * as modals from './modal.js';
 import * as startCards from './initial-сards.js';
-
+import * as validate from './validate.js';
 
 /* -------------------Создаем новую карточку------------------- */
 
@@ -67,9 +67,9 @@ export function submitFormNewCard(evt) {
   const newCard = createNewCard(newCardObject);
   cardsList.prepend(newCard);
   modals.closePopup(popupNewCard);
-  popupNewCard.querySelector('.form').reset();
-  popupNewCard.querySelector('.form__submit').disabled = true;
-  popupNewCard.querySelector('.form__submit').classList.add('form__submit_inactive');
+  popupNewCard.querySelector(validate.validationConfig.formSelector).reset();
+  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).disabled = true;
+  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).classList.add('form__submit_inactive');
 }
 
 export function loadInitialCards(arr) {
