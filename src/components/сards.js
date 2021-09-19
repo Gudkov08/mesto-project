@@ -72,12 +72,9 @@ export function submitFormNewCard(evt) {
   popupNewCard.querySelector('.form__submit').classList.add('form__submit_inactive');
 }
 
-function loadInitialCards(arr) {
+export function loadInitialCards(arr) {
   arr.forEach(item => {
     const newCard = createNewCard(item);
     cardsList.prepend(newCard);
   });
 }
-
-/* -------------------Добавление 6ти карточек по умолчанию------------------- */
-loadInitialCards(startCards.initialCards);

@@ -4,6 +4,7 @@ const profileNameInput = document.querySelector("input[name=profile-name]");
 const profileDescriptionInput = document.querySelector("input[name=profile-description]");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
+const profileAvatar = document.querySelector(".profile__img");
 const popupEdit = document.querySelector("#POPUP-EDIT-PROFILE");
 
 // открытие popupEdit
@@ -21,4 +22,10 @@ function submitPopupEdit(evt) {
   modals.closePopup(popupEdit);
 }
 
-export {openPopupEdit, submitPopupEdit, popupEdit}
+function loadProfile(obj) {
+  profileName.textContent =obj.name;
+  profileDescription.textContent =obj.about;
+  profileAvatar.src = obj.avatar;
+}
+
+export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile}

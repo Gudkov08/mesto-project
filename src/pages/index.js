@@ -3,6 +3,7 @@ import * as validate from '../components/validate.js';
 import * as cards from '../components/сards.js';
 import * as modals from '../components/modal.js';
 import * as profile from '../components/profile.js';
+import * as api from '../components/api.js';
 import './index.css';
 
 /* -------------------Вешаем слушатели на кнопки в попапах------------------- */
@@ -45,3 +46,7 @@ popupImage
   .addEventListener("click", function () {
     modals.closePopup(popupImage);
   });
+
+
+  api.getInitialCards();
+api.getUserInfo();
