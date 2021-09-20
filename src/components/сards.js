@@ -1,6 +1,8 @@
 import * as modals from './modal.js';
 import * as startCards from './initial-сards.js';
-
+import * as validate from './validate.js';
+import * as api from './api.js';
+import {resetButton} from './utils.js';
 
 /* -------------------Создаем новую карточку------------------- */
 
@@ -17,10 +19,13 @@ export function createNewCard(card) {
   // наполняем содержимым
   const image = cardElement.querySelector(".elements__card-image");
   const imageCaption = cardElement.querySelector(".elements__card-title");
+  const numberLikes = cardElement.querySelector(".elements__likes-number");
 
   imageCaption.textContent = card.name;
   image.alt = card.name;
   image.src = card.link;
+
+  numberLikes.textContent =  card.likes.length;
 
   // обработчик нажатия на кнопку лайк
   cardElement
@@ -58,26 +63,25 @@ export const cardsList = document.querySelector(".elements__list");
 
 export function submitFormNewCard(evt) {
   const popupNewCard = document.querySelector("#POPUP-NEW-CARD");
-  const newCardObject = {
-  };
+  const newCardObject = {  };
+
   newCardObject.name = popupNewCard.querySelector("input[name=newCardName]").value;
   newCardObject.link = popupNewCard.querySelector("input[name=newCardLink]").value;
-
+  newCardObject.likes = [];
+;
   evt.preventDefault();
   const newCard = createNewCard(newCardObject);
+  api.loadNewCardToServer(newCardObject);
   cardsList.prepend(newCard);
   modals.closePopup(popupNewCard);
-  popupNewCard.querySelector('.form').reset();
-  popupNewCard.querySelector('.form__submit').disabled = true;
-  popupNewCard.querySelector('.form__submit').classList.add('form__submit_inactive');
+  resetButton(popupNewCard);
 }
 
-function loadInitialCards(arr) {
+export function loadInitialCards(arr) {
   arr.forEach(item => {
     const newCard = createNewCard(item);
     cardsList.prepend(newCard);
   });
 }
 
-/* -------------------Добавление 6ти карточек по умолчанию------------------- */
-loadInitialCards(startCards.initialCards);
+

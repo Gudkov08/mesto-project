@@ -6,6 +6,12 @@
   height: 120px;
 }
 
+.profile__img:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+  cursor: url("../../../images/edit-pointer.svg"), pointer;
+}
+
 @media (max-width: 618px) {
   .profile__img {
     margin-right: 0;

@@ -1,6 +1,6 @@
 /* -------------------Лайв Валидация------------------- */
 
-const validationConfig = {
+export const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__submit',
@@ -78,5 +78,3 @@ export const enableValidation = ({formSelector, ...rest}) => {
   });
 };
 
-/* -------------------Запускаем лайв-валидацию форм------------------- */
-enableValidation(validationConfig);

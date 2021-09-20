@@ -23,11 +23,13 @@
 @import "../blocks/elements/__card-title/elements__card-title.css";
 @import "../blocks/elements/__card-button/elements__card-button.css";
 @import "../blocks/elements/__card-button/_active/elements__card-button_active.css";
+@import "../blocks/elements/__likes-number/elements__likes-number.css";
 @import "../blocks/footer/footer.css";
 @import "../blocks/footer/__copyright/footer__copyright.css";
 @import "../blocks/popup/popup.css";
 @import "../blocks/popup/_opened/popup_opened.css";
 @import "../blocks/popup/__container/popup__container.css";
+@import "../blocks/popup/__container/_type/popup__container_type_small.css";
 @import "../blocks/popup/_type/popup_type_img.css";
 @import "../blocks/imgPopup/imgPopup.css";
 @import "../blocks/imgPopup/__image/imgPopup__image.css";
