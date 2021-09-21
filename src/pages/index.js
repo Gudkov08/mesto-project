@@ -6,6 +6,20 @@ import * as profile from '../components/profile.js';
 import * as api from '../components/api.js';
 import './index.css';
 
+/* -------------------Загружаем данные с сервера: профиль и карточки------------------- */
+Promise.all([api.getInitialCards(), api.getUserInfo()])
+  .then((responses) => {
+    cards.loadInitialCards(responses[0], responses[1]);
+    profile.loadProfile(responses[1]);
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+
+
+/* -------------------Запускаем лайв-валидацию форм------------------- */
+validate.enableValidation(validate.validationConfig);
+
 /* -------------------Вешаем слушатели на кнопки в попапах------------------- */
 const editButton = document.querySelector(".button_type_edit");
 const formEdit = document.forms.editProfile;
@@ -61,10 +75,3 @@ popupChangeAvatar
 });
 
 formChangeAvatar.addEventListener("submit", profile.submitChangeAvatar);
-
-/* -------------------Запускаем лайв-валидацию форм------------------- */
-validate.enableValidation(validate.validationConfig);
-
-/* -------------------Загружаем данные с сервера: профиль и карточки------------------- */
-Promise.all([api.loadInitialCards(), api.loadUserProfile()]);
-

@@ -23,30 +23,10 @@ export const getInitialCards = () => {
   }).then(getResponse)
 }
 
-export const loadInitialCards = () => {
-  getInitialCards()
-  .then((data) => {
-    cards.loadInitialCards(data)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
-}
-
 export const getUserInfo = () => {
   return fetch(`${mestoConfig.baseUrl}/users/me`, {
     headers: mestoConfig.headers
   }).then(getResponse)
-}
-
-export const loadUserProfile = () => {
-  getUserInfo()
-  .then((data) => {
-    profile.loadProfile(data)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 export const editUserProfile = (name, about) => {
@@ -84,6 +64,36 @@ export const changeAvatarOnServer = (link) => {
     body: JSON.stringify({
       avatar: link
     })
+  }).then(getResponse)
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
+export const deleteCardFromServer = (card) => {
+  return fetch(`${mestoConfig.baseUrl}/cards/` + card._id, {
+    method: 'DELETE',
+    headers: mestoConfig.headers,
+  }).then(getResponse)
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
+export const putLikeToServer = (card) => {
+  return fetch(`${mestoConfig.baseUrl}/cards/likes/` + card._id, {
+    method: 'PUT',
+    headers: mestoConfig.headers,
+  }).then(getResponse)
+  .catch((err) => {
+    console.log(err)
+  })
+}
+
+export const deleteLikeFromServer = (card) => {
+  return fetch(`${mestoConfig.baseUrl}/cards/likes/` + card._id, {
+    method: 'DELETE',
+    headers: mestoConfig.headers,
   }).then(getResponse)
   .catch((err) => {
     console.log(err)

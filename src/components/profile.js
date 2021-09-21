@@ -10,6 +10,13 @@ const profileDescription = document.querySelector(".profile__description");
 const profileAvatar = document.querySelector(".profile__img");
 const popupEdit = document.querySelector("#POPUP-EDIT-PROFILE");
 
+
+let user = {};
+
+function makeUser(obj) {
+  Object.assign(user, obj);
+}
+
 // открытие popupEdit
 function openPopupEdit() {
   modals.openPopup(popupEdit);
@@ -31,6 +38,7 @@ function loadProfile(obj) {
   profileName.textContent =obj.name;
   profileDescription.textContent =obj.about;
   profileAvatar.src = obj.avatar;
+  makeUser(obj);
 }
 
 function submitChangeAvatar(evt) {
@@ -43,4 +51,4 @@ function submitChangeAvatar(evt) {
   resetButton(popupChangeAvatar);
 }
 
-export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile, profileAvatar, submitChangeAvatar}
+export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile, profileAvatar, submitChangeAvatar, user}
