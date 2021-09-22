@@ -12,3 +12,5 @@
 **Использованные технологии:** HTML, CSS, JavaScript, Webpack.
 
 **Автор:** Гудков Андрей.
+
+[Ссылка на GitHub Pages.](https://gudkov08.github.io/mesto-project/)

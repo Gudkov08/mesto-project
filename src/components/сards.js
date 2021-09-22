@@ -99,15 +99,6 @@ export function submitFormNewCard(evt) {
   const newCard = createNewCard(newCardObject, profileUser);
 
   evt.preventDefault();
-  const newCard = createNewCard(newCardObject);
-  cardsList.prepend(newCard);
-  modals.closePopup(popupNewCard);
-  popupNewCard.querySelector(validate.validationConfig.formSelector).reset();
-  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).disabled = true;
-  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).classList.add('form__submit_inactive');
-}
-
-export function loadInitialCards(arr) {
   buttonSubmitPopupNewCard.textContent = "Сохранение..."
   api.loadNewCardToServer(newCardObject)
   .then(() => {
