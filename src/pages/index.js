@@ -29,6 +29,9 @@ const popupImage = document.querySelector("#POPUP-IMAGE-LARGE");
 const popupNewCard = document.querySelector("#POPUP-NEW-CARD");
 export const popupChangeAvatar = document.querySelector("#POPUP-CHANGE-AVATAR");
 const formChangeAvatar = document.forms.changeAvatar;
+export const popupDeleteCard = document.querySelector("#POPUP-DELETE-CARD");
+const formDeleteCard = document.forms.deleteCard;
+
 
 // popupEdit
 editButton.addEventListener("click", function () {
@@ -75,3 +78,11 @@ popupChangeAvatar
 });
 
 formChangeAvatar.addEventListener("submit", profile.submitChangeAvatar);
+
+//popupDeleteCard
+popupDeleteCard.querySelector(".button_type_close")
+  .addEventListener("click", function () {
+    modals.closePopup(popupDeleteCard);
+});
+
+formDeleteCard.addEventListener("submit", cards.submitFormDeleteCard);

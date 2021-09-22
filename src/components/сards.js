@@ -4,6 +4,7 @@ import * as validate from './validate.js';
 import * as api from './api.js';
 import {resetButton} from './utils.js';
 import {user as profileUser} from './profile.js';
+import {popupDeleteCard} from '../pages/index.js';
 
 /* -------------------Создаем новую карточку------------------- */
 
@@ -57,9 +58,11 @@ export function createNewCard(card, user) {
   if (card.owner._id != user._id) {
     buttonTrash.remove();
   }
+
   buttonTrash.addEventListener("click", function () {
-    api.deleteCardFromServer(card);
-    buttonTrash.closest('.elements__card').remove();
+    modals.openPopup(popupDeleteCard);
+/*     api.deleteCardFromServer(card);
+    buttonTrash.closest('.elements__card').remove(); */
   });
 
   // обработчик нажатия на картинку
@@ -107,4 +110,9 @@ export function loadInitialCards(arr, user) {
   });
 }
 
-
+export function submitFormDeleteCard(evt) {
+  evt.preventDefault();
+  api.deleteCardFromServer(card);
+  buttonTrash.closest('.elements__card').remove();
+  modals.closePopup(popupChangeAvatar);
+}

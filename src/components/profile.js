@@ -9,7 +9,7 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const profileAvatar = document.querySelector(".profile__img");
 const popupEdit = document.querySelector("#POPUP-EDIT-PROFILE");
-
+const buttonSubmitPopupEdit = popupEdit.querySelector(".form__submit");
 
 let user = {};
 
@@ -27,11 +27,18 @@ function openPopupEdit() {
 // сохранение значений и закрытие popupEdit
 function submitPopupEdit(evt) {
   evt.preventDefault();
-  api.editUserProfile(profileNameInput.value, profileDescriptionInput.value);
-  modals.closePopup(popupEdit);
-  profileName.textContent = profileNameInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  resetButton(popupEdit);
+  buttonSubmitPopupEdit.textContent = "Сохранение..."
+  api.editUserProfile(profileNameInput.value, profileDescriptionInput.value)
+  .then(() => {
+    profileName.textContent = profileNameInput.value;
+    profileDescription.textContent = profileDescriptionInput.value;
+    modals.closePopup(popupEdit);
+    resetButton(popupEdit);
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  .finally(() => {buttonSubmitPopupEdit.textContent = "Сохранить"})
 }
 
 function loadProfile(obj) {
