@@ -50,12 +50,20 @@ function loadProfile(obj) {
 
 function submitChangeAvatar(evt) {
   const newAvatarLink = popupChangeAvatar.querySelector("input[name=newAvatarLink]").value;
+  const buttonSubmitChangeAvatar = popupChangeAvatar.querySelector(".form__submit");
 
   evt.preventDefault();
-  api.changeAvatarOnServer(newAvatarLink);
-  modals.closePopup(popupChangeAvatar);
-  profileAvatar.src = newAvatarLink;
-  resetButton(popupChangeAvatar);
+  buttonSubmitChangeAvatar.textContent = "Загрузка..."
+  api.changeAvatarOnServer(newAvatarLink)
+  .then(() => {
+    profileAvatar.src = newAvatarLink;
+    modals.closePopup(popupChangeAvatar);
+    resetButton(popupChangeAvatar);
+})
+.catch((err) => {
+  console.log(err)
+})
+.finally(() => {buttonSubmitChangeAvatar.textContent = "Сохранить"})
 }
 
 export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile, profileAvatar, submitChangeAvatar, user}

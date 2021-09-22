@@ -60,7 +60,7 @@ export function createNewCard(card, user) {
   }
 
   buttonTrash.addEventListener("click", function () {
-    modals.openPopup(popupDeleteCard);
+    modals.openPopupDeleteCard(popupDeleteCard, card, buttonTrash);
 /*     api.deleteCardFromServer(card);
     buttonTrash.closest('.elements__card').remove(); */
   });
@@ -87,6 +87,7 @@ export const cardsList = document.querySelector(".elements__list");
 
 export function submitFormNewCard(evt) {
   const popupNewCard = document.querySelector("#POPUP-NEW-CARD");
+  const buttonSubmitPopupNewCard = popupNewCard.querySelector(".form__submit");
   const newCardObject = {};
 
   newCardObject.name = popupNewCard.querySelector("input[name=newCardName]").value;
@@ -95,12 +96,20 @@ export function submitFormNewCard(evt) {
   newCardObject.owner = {};
   newCardObject.owner._id = profileUser._id;
 
-  evt.preventDefault();
   const newCard = createNewCard(newCardObject, profileUser);
-  api.loadNewCardToServer(newCardObject);
-  cardsList.prepend(newCard);
-  modals.closePopup(popupNewCard);
-  resetButton(popupNewCard);
+
+  evt.preventDefault();
+  buttonSubmitPopupNewCard.textContent = "Сохранение..."
+  api.loadNewCardToServer(newCardObject)
+  .then(() => {
+    cardsList.prepend(newCard);
+    modals.closePopup(popupNewCard);
+    resetButton(popupNewCard);
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  .finally(() => {buttonSubmitPopupNewCard.textContent = "Создать"})
 }
 
 export function loadInitialCards(arr, user) {
@@ -110,9 +119,13 @@ export function loadInitialCards(arr, user) {
   });
 }
 
-export function submitFormDeleteCard(evt) {
-  evt.preventDefault();
-  api.deleteCardFromServer(card);
-  buttonTrash.closest('.elements__card').remove();
-  modals.closePopup(popupChangeAvatar);
+export function submitFormDeleteCard(card, buttonTrash) {
+  api.deleteCardFromServer(card)
+  .then(() => {
+    buttonTrash.closest('.elements__card').remove();
+    modals.closePopup(popupDeleteCard);
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 }
