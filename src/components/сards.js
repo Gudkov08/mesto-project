@@ -110,6 +110,13 @@ export function submitFormNewCard(evt) {
     console.log(err)
   })
   .finally(() => {buttonSubmitPopupNewCard.textContent = "Создать"})
+
+  const newCard = createNewCard(newCardObject);
+  cardsList.prepend(newCard);
+  modals.closePopup(popupNewCard);
+  popupNewCard.querySelector(validate.validationConfig.formSelector).reset();
+  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).disabled = true;
+  popupNewCard.querySelector(validate.validationConfig.submitButtonSelector).classList.add(validate.validationConfig.inactiveButtonClass);
 }
 
 export function loadInitialCards(arr, user) {
