@@ -1,10 +1,10 @@
 import * as modals from './modal.js';
-import * as startCards from './initial-сards.js';
 import * as validate from './validate.js';
 import * as api from './api.js';
 import {resetButton} from './utils.js';
 import {user as profileUser} from './profile.js';
-import {popupDeleteCard} from '../pages/index.js';
+
+export const popupDeleteCard = document.querySelector("#POPUP-DELETE-CARD");
 
 /* -------------------Создаем новую карточку------------------- */
 
@@ -31,25 +31,39 @@ export function createNewCard(card, user) {
 
   // обработчик нажатия на кнопку лайк
   const buttonLike = cardElement.querySelector(".elements__card-button");
-    for (let i = 0; i < card.likes.length; i++) {
-    if (card.likes[i]._id === user._id) {
-      buttonLike.classList.add("elements__card-button_active");
-      break;
+  const likes = card.likes;
+
+  let checkUserLike = likes.some(function(elem) {
+    if (elem._id === user._id) {
+      return true;
     }
+  });
+
+  if (checkUserLike) {
+    buttonLike.classList.add("elements__card-button_active");
   }
 
   buttonLike.addEventListener ("click", function (evt) {
       const eventTarget = evt.target;
       if (buttonLike.classList.contains("elements__card-button_active")) {
         api.deleteLikeFromServer(card)
-        .then((res) => {numberLikes.textContent = res.likes.length});
-        eventTarget.classList.remove("elements__card-button_active");
+        .then((res) => {
+          numberLikes.textContent = res.likes.length;
+          eventTarget.classList.remove("elements__card-button_active");
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       } else {
         api.putLikeToServer(card)
-        .then((res) => {numberLikes.textContent = res.likes.length});
-        eventTarget.classList.add("elements__card-button_active");
+        .then((res) => {
+          numberLikes.textContent = res.likes.length;
+          eventTarget.classList.add("elements__card-button_active");
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       }
-
     });
 
   // обработчик нажатия на кнопку удаления карточки
@@ -60,9 +74,19 @@ export function createNewCard(card, user) {
   }
 
   buttonTrash.addEventListener("click", function () {
-    modals.openPopupDeleteCard(popupDeleteCard, card, buttonTrash);
-/*     api.deleteCardFromServer(card);
-    buttonTrash.closest('.elements__card').remove(); */
+    const callback = (e) => { //колбек при сабмите формы удаления
+      e.preventDefault();
+      api.deleteCardFromServer(card)
+      .then(() => {
+        buttonTrash.closest('.elements__card').remove();
+        modals.formDeleteCard.removeEventListener("submit", callback);
+        modals.closePopup(popupDeleteCard);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
+    modals.openPopupDeleteCard(callback); //открываем попам на удаление карточки
   });
 
   // обработчик нажатия на картинку
@@ -88,20 +112,23 @@ export const cardsList = document.querySelector(".elements__list");
 export function submitFormNewCard(evt) {
   const popupNewCard = document.querySelector("#POPUP-NEW-CARD");
   const buttonSubmitPopupNewCard = popupNewCard.querySelector(".form__submit");
-  const newCardObject = {};
 
+  const newCardObject = {};
   newCardObject.name = popupNewCard.querySelector("input[name=newCardName]").value;
   newCardObject.link = popupNewCard.querySelector("input[name=newCardLink]").value;
-  newCardObject.likes = [];
-  newCardObject.owner = {};
-  newCardObject.owner._id = profileUser._id;
-
-  const newCard = createNewCard(newCardObject, profileUser);
 
   evt.preventDefault();
   buttonSubmitPopupNewCard.textContent = "Сохранение..."
+
   api.loadNewCardToServer(newCardObject)
-  .then(() => {
+  .then((res) => {
+    newCardObject.likes = res.likes;
+    newCardObject.owner = res.owner;
+    newCardObject.owner._id = res.owner._id;
+    newCardObject._id = res._id;
+
+    const newCard = createNewCard(newCardObject, profileUser);
+
     cardsList.prepend(newCard);
     modals.closePopup(popupNewCard);
     resetButton(popupNewCard);
@@ -113,19 +140,9 @@ export function submitFormNewCard(evt) {
 }
 
 export function loadInitialCards(arr, user) {
+  arr.reverse();
   arr.forEach(item => {
     const newCard = createNewCard(item, user);
     cardsList.prepend(newCard);
   });
-}
-
-export function submitFormDeleteCard(card, buttonTrash) {
-  api.deleteCardFromServer(card)
-  .then(() => {
-    buttonTrash.closest('.elements__card').remove();
-    modals.closePopup(popupDeleteCard);
-  })
-  .catch((err) => {
-    console.log(err)
-  })
 }

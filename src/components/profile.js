@@ -1,6 +1,5 @@
 import * as modals from './modal.js';
 import * as api from './api.js';
-import {popupChangeAvatar} from '../pages/index.js';
 import {resetButton} from './utils.js';
 
 const profileNameInput = document.querySelector("input[name=profile-name]");
@@ -48,6 +47,8 @@ function loadProfile(obj) {
   makeUser(obj);
 }
 
+const popupChangeAvatar = document.querySelector("#POPUP-CHANGE-AVATAR");
+
 function submitChangeAvatar(evt) {
   const newAvatarLink = popupChangeAvatar.querySelector("input[name=newAvatarLink]").value;
   const buttonSubmitChangeAvatar = popupChangeAvatar.querySelector(".form__submit");
@@ -66,4 +67,4 @@ function submitChangeAvatar(evt) {
 .finally(() => {buttonSubmitChangeAvatar.textContent = "Сохранить"})
 }
 
-export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile, profileAvatar, submitChangeAvatar, user}
+export {openPopupEdit, submitPopupEdit, popupEdit, loadProfile, profileAvatar, submitChangeAvatar, user, popupChangeAvatar}

@@ -1,5 +1,4 @@
 /* -------------------Логика работы попапов------------------- */
-import {formDeleteCard} from '../pages/index.js';
 import * as cards from './сards.js';
 
 function handleESC(evt) {
@@ -20,18 +19,21 @@ function openPopup(popup) {
   popup.addEventListener('click', handleOverlay);
 }
 
-function openPopupDeleteCard(popup, card, buttonTrash) {
-  openPopup(popup);
-  formDeleteCard.addEventListener("submit", function () {
-    cards.submitFormDeleteCard(card, buttonTrash);
-    console.log('123')
-  });
-}
-
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener('keydown', handleESC);
   popup.removeEventListener('click', handleOverlay);
 }
 
-export {openPopup, closePopup, openPopupDeleteCard}
+const formDeleteCard = document.forms.deleteCard;
+
+const openPopupDeleteCard = (callback) => {
+  function closePopupDeleteCard() {
+    closePopup(cards.popupDeleteCard);
+    modals.formDeleteCard.removeEventListener("submit", callback);
+  }
+  openPopup(cards.popupDeleteCard);
+  formDeleteCard.addEventListener("submit", callback);
+}
+
+export {openPopup, closePopup, openPopupDeleteCard, formDeleteCard}

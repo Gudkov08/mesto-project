@@ -1,7 +1,3 @@
-import * as cards from './сards.js';
-import * as profile from './profile.js';
-
-
 const mestoConfig = {
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-1',
   headers: {
@@ -38,9 +34,6 @@ export const editUserProfile = (name, about) => {
       about: about
     })
   }).then(getResponse)
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 export const loadNewCardToServer = (newCard) => {
@@ -52,9 +45,6 @@ export const loadNewCardToServer = (newCard) => {
       link: newCard.link
     })
   }).then(getResponse)
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 export const changeAvatarOnServer = (link) => {
@@ -65,9 +55,6 @@ export const changeAvatarOnServer = (link) => {
       avatar: link
     })
   }).then(getResponse)
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 export const deleteCardFromServer = (card) => {
@@ -75,9 +62,6 @@ export const deleteCardFromServer = (card) => {
     method: 'DELETE',
     headers: mestoConfig.headers,
   }).then(getResponse)
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 export const putLikeToServer = (card) => {
@@ -85,9 +69,6 @@ export const putLikeToServer = (card) => {
     method: 'PUT',
     headers: mestoConfig.headers,
   }).then(getResponse)
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 export const deleteLikeFromServer = (card) => {
@@ -95,7 +76,4 @@ export const deleteLikeFromServer = (card) => {
     method: 'DELETE',
     headers: mestoConfig.headers,
   }).then(getResponse)
-  .catch((err) => {
-    console.log(err)
-  })
 }

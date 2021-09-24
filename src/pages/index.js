@@ -1,4 +1,3 @@
-import * as startCards from '../components/initial-сards.js';
 import * as validate from '../components/validate.js';
 import * as cards from '../components/сards.js';
 import * as modals from '../components/modal.js';
@@ -8,9 +7,9 @@ import './index.css';
 
 /* -------------------Загружаем данные с сервера: профиль и карточки------------------- */
 Promise.all([api.getInitialCards(), api.getUserInfo()])
-  .then((responses) => {
-    cards.loadInitialCards(responses[0], responses[1]);
-    profile.loadProfile(responses[1]);
+  .then(([arr, user]) => {
+    cards.loadInitialCards(arr, user);
+    profile.loadProfile(user);
   })
   .catch((err) => {
     console.log(err)
@@ -27,10 +26,7 @@ const newCardButton = document.querySelector(".profile__add-btn");
 const formNewCard = document.forms.newCard;
 const popupImage = document.querySelector("#POPUP-IMAGE-LARGE");
 const popupNewCard = document.querySelector("#POPUP-NEW-CARD");
-export const popupChangeAvatar = document.querySelector("#POPUP-CHANGE-AVATAR");
 const formChangeAvatar = document.forms.changeAvatar;
-export const popupDeleteCard = document.querySelector("#POPUP-DELETE-CARD");
-export const formDeleteCard = document.forms.deleteCard;
 
 
 // popupEdit
@@ -68,19 +64,19 @@ popupImage
 
 // popupChangeAvatar
 profile.profileAvatar.addEventListener("click", function () {
-  modals.openPopup(popupChangeAvatar);
+  modals.openPopup(profile.popupChangeAvatar);
 });
 
-popupChangeAvatar
+profile.popupChangeAvatar
   .querySelector(".button_type_close")
   .addEventListener("click", function () {
-    modals.closePopup(popupChangeAvatar);
+    modals.closePopup(profile.popupChangeAvatar);
 });
 
 formChangeAvatar.addEventListener("submit", profile.submitChangeAvatar);
 
 //popupDeleteCard
-popupDeleteCard.querySelector(".button_type_close")
+cards.popupDeleteCard.querySelector(".button_type_close")
   .addEventListener("click", function () {
-    modals.closePopup(popupDeleteCard);
+    modals.closePopup(cards.popupDeleteCard);
 });
