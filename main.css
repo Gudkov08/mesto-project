@@ -30,6 +30,7 @@
 .popup_opened{display:flex;opacity:1;transition:opacity .5s;visibility:visible}
 .popup__container{background:#fff;border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);box-sizing:border-box;margin-left:19px;margin-right:19px;min-height:330px;padding:34px 36px 37px;position:relative;width:430px}@media (max-width:618px){.popup__container{min-height:322px;padding:25px 22px}}@media (max-width:468px){.popup__container{width:300px}}
 .popup__container_type_small{min-height:272px}
+.popup__container_type_xs{min-height:181px}
 .popup_type_img{background-color:rgba(0,0,0,.9)}
 .imgPopup{margin:0;position:relative}
 .imgPopup__image{-webkit-margin-after:10px;margin-block-end:10px;max-height:75vh;max-width:75vw;-o-object-fit:cover;object-fit:cover}@media (max-width:618px){.imgPopup__image{-webkit-margin-after:20px;margin-block-end:20px;min-height:300px}}
