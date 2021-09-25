@@ -33,7 +33,7 @@ export function createNewCard(card, user) {
   const buttonLike = cardElement.querySelector(".elements__card-button");
   const likes = card.likes;
 
-  let checkUserLike = likes.some(function(elem) {
+  const checkUserLike = likes.some(function(elem) {
     if (elem._id === user._id) {
       return true;
     }
